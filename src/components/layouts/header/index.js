@@ -1,5 +1,5 @@
 import Link from 'next/link';
-// import { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import isEmpty from 'lodash/isEmpty';
 
 // import { BurgerIcon, TailwindIcon, Bag, User, Wishlist } from '../../icons';
@@ -16,7 +16,7 @@ const Header = ({header}) => {
             <title>{siteTitle || 'Nexts WooCommerce App'}</title>
             <link rel="icon" href={ favicon  || "/favicon.ico" }/>
         </Head>
-			<div className="header">
+			<div className="header center">
 				<nav className="bg-white py-5">
 					<div className="flex items-center justify-between flex-wrap container mx-auto">
 						<div className="flex items-center flex-shrink-0 text-black mr-20">
@@ -53,13 +53,13 @@ const Header = ({header}) => {
 			</div>
 		<div className="text-sm font-medium uppercase lg:flex-grow">
 							{ ! isEmpty( headerMenuItems ) && headerMenuItems.length ? headerMenuItems.map( menuItem => (
-								<Link key={ menuItem?.ID }
+								<Link legacyBehavior key={ menuItem?.ID }
 										href={ getPathNameFromUrl( menuItem?.url ?? '' ) || '/' }>
 									<a className="block mt-4 lg:inline-block lg:mt-0 hover:text-brand-royal-blue duration-500 mr-10"
 										dangerouslySetInnerHTML={ { __html: menuItem.title } }/>
 								</Link>
 							) ) : null }
-							<Link href="/blog">
+							<Link legacyBehavior href="/blog">
 								<a className="block mt-4 lg:inline-block lg:mt-0 hover:text-brand-royal-blue duration-500 mr-10">Blog</a>
 							</Link>
 						</div>
