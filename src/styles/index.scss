@@ -1,0 +1,121 @@
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
+
+%f16l19 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #333333;
+}
+
+
+.container_header {
+    max-width: 1520px;
+    margin: 0 auto;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 160%;
+    color: #373536;
+    padding: 0px;
+    margin: 0px;
+}
+a {
+    text-decoration: none;
+}
+.top_header {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 35px;
+}
+.mobile_logo {
+    display:none;
+}
+.header_top_button {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    text-align: center;
+    color: #333333;
+    width: 162px;
+    margin-left: 40px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.top_header_search {
+    margin-left: 40px;
+    margin-right: 60px;
+}
+li {
+    list-style-type: none;
+}
+.header_top_column_text  {
+    display: flex;
+    align-items: center;
+    @extend %f16l19;
+    span {
+        margin-left: 6px;
+    }
+}
+.header_top_button {
+    @extend %f16l19;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    text-align: center;
+    color: #333333;
+    width: 162px;
+    margin-left: 40px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.header_top_button_mobile {
+    display: none;
+}
+.mobile_menu {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .header_top_button {
+        display: none;
+    }
+    .header_top_button_mobile {
+        display: block;
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        border: 1px solid #333333;
+        border-radius: 5px;
+        text-align: center;
+        color: #333333;
+        width: 162px;
+        margin-left: 40px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+}
