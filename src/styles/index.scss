@@ -10,8 +10,45 @@
     line-height: 19px;
     color: #333333;
 }
+%f20l24 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #333333;
+}
+%f16l30 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 30px;
+    color: #333333;
+}
+%f16l40 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 40px;
+    color: #333333;
+}
+%f20l30 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #333333;
+}
 
-
+ul {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-inline-start: 0px;
+}
 .container_header {
     max-width: 1520px;
     margin: 0 auto;
@@ -94,6 +131,72 @@ li {
 .mobile_menu {
     display: none;
 }
+.header_top_column_link {
+    @extend %f20l24;
+}
+.header_top_column_second {
+    margin-left: 30px;
+}
+// Подвал
+footer {
+    padding-top: 85px;
+    padding-bottom: 105px;
+    background: #1A2227;
+}
+.footer_column_wrapper {
+    display: flex;
+}
+.footer_column_two {
+    margin-left: 210px;
+}
+.footer_column_three {
+    margin-left: 285px;
+}
+.footer_column_four {
+    margin-left: 180px;
+}
+.footer_column_copyright {
+    @extend %f16l30;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 152px;
+}
+.footer_column_powered {
+    @extend %f16l30;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 10px;
+}
+.footer_column_title {
+    @extend %f20l30;
+    color: #fff;
+}
+.footer_main_navigation {
+    a {
+        @extend %f16l40;
+        color: #fff;
+    }
+    margin-top: 40px;
+}
+.footer_phone_wrapper {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+.footer_email_wrapper {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+.footer_map_wrapper {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+.footer_contact_wrapper a {
+    @extend %f16l19;
+    color: #FFFFFF;
+    margin-left: 15px;
+}
+
 
 @media (max-width: 1024px) {
     .header_top_button {

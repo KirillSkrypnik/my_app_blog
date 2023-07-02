@@ -20,6 +20,9 @@ const Header = ({header}) => {
         <Head>
             <title>{siteTitle || 'Nexts WooCommerce App'}</title>
             <link rel="icon" href={ favicon  || "/favicon.ico" }/>
+			<link rel="preconnect" href="https://fonts.googleapis.com" />
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+			<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,600;1,700&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         </Head>
 		<div className="container_header">
 			<div className="top_header">
