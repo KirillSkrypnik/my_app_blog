@@ -196,7 +196,13 @@ footer {
     color: #FFFFFF;
     margin-left: 15px;
 }
-
+.footer_social_links_wrapper {
+    display: flex;
+    a svg{
+        width: 33px;
+        height: 20px;
+    }
+}
 
 @media (max-width: 1024px) {
     .header_top_button {

@@ -1,8 +1,23 @@
 import {getPathNameFromUrl, sanitaze} from '../../../utils/miscellaneous';
-
+import * as SvgIconsComponent from '../../icons/iconComponents';
 import { isEmpty, isArray } from 'lodash';  
 import Link from 'next/link';
 
+export const getIconComponentByName = (name)=>{
+    const ComponentsMap = {
+        facebook: SvgIconsComponent.Facebook,
+        twitter: SvgIconsComponent.Twitter,
+        instagram: SvgIconsComponent.Instagram,
+        youtube: SvgIconsComponent.Youtube
+    }
+
+    if(name in ComponentsMap){
+        const IconComponents = ComponentsMap[name];
+        return <IconComponents title={name}/>
+    } else {
+        return null;
+    }
+};
 const Footer = ({footer}) => {
     console.log( footer);
     const {copyrightText, footerMenuItems, sidebarOne, sidebarTwo, socialLinks, carbon} = footer || {};
@@ -62,11 +77,9 @@ const Footer = ({footer}) => {
                         </div>
                         <div className="footer_social_links_wrapper">
                             {socialLinks.map(socialLink => (
-                                <div key={socialLink?.iconName} >
                                     <a href={socialLink?.iconUrl || '/'}>
-                                        <span>{socialLink?.iconName}</span>
+                                        {getIconComponentByName (socialLink?.iconName)}
                                     </a>
-                                </div>
                             ))}    
                         </div>
                     </div>
