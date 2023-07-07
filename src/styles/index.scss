@@ -204,6 +204,13 @@ footer {
     }
 }
 
+//Сетка grid
+.grid_four_item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+} 
+
+
 @media (max-width: 1024px) {
     .header_top_button {
         display: none;

@@ -19,7 +19,7 @@ export const getIconComponentByName = (name)=>{
     }
 };
 const Footer = ({footer}) => {
-    console.log( footer);
+    // console.log( footer);
     const {copyrightText, footerMenuItems, sidebarOne, sidebarTwo, socialLinks, carbon} = footer || {};
 
     return (
@@ -76,11 +76,11 @@ const Footer = ({footer}) => {
                         Заказать звонок
                         </div>
                         <div className="footer_social_links_wrapper">
-                            {socialLinks.map(socialLink => (
+                            {/* {socialLinks?.map(socialLink => (
                                     <a href={socialLink?.iconUrl || '/'}>
                                         {getIconComponentByName (socialLink?.iconName)}
                                     </a>
-                            ))}    
+                            ))}     */}
                         </div>
                     </div>
                 </div>
