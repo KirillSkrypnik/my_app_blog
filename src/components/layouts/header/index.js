@@ -11,7 +11,7 @@ import { getPathNameFromUrl } from '../../../utils/miscellaneous';
 import Head from 'next/head'
 const Header = ({header}) => {
 	const {headerMenuItems, siteDescription, siteLogoUrl, siteTitle, favicon} = header || {} //равны пунктам меню или пустому заголовку если пунктов меню нет
-	console.warn('header', header);
+	// console.warn('header', header);
 
 	const [ isMenuVisible, setMenuVisibility ] = useState( false ); //Для изменения бургера и открытия меню
 
@@ -55,6 +55,8 @@ const Header = ({header}) => {
 				</div>
 				<a
 				className='header_top_button'>Каталог</a>
+				<a
+				className='header_top_button'>Корзина</a>
 				<button 
 				onClick={() => setMenuVisibility( ! isMenuVisible)} 
 				className="header_top_button_mobile">

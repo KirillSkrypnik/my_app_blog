@@ -1,41 +1,34 @@
-import Header from '../src/components/layouts/header';
-import Footer from '../src/components/layouts/footer';
 import axios from 'axios';
 import Products from '../src/components/products';
 import { GET_PRODUCTS_ENDPOINT } from '../src/utils/constants/endpoints';
 import Categories from '../src/components/categories';
+import { getProductsData } from '../src/utils/products';
+import { getCategoriesData } from '../src/utils/categories';
+import Layout from '../src/components/layouts';
 
 
 export default function Home({headerFooter, products, categories}) {
 
-  const { header, footer } = headerFooter || {};
   return (
-    <div>
-    <Header header={header} />
-    <main className='container'>
+    <Layout headerFooter={headerFooter}>
       <Products products={products} />
-      {/* <Categories categories={categories} /> */}
-    </main>
-    <Footer footer={footer} />
-    </div>
+      <Categories categories={categories} />
+    </Layout >
   )
 }
 
 export async function getStaticProps() {
   // Все будет выводится последовательно, друг за другом
 	const { data: headerFooterData } = await axios.get( `${ process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL }/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer`);
-	const { data: productsData } = await axios.get( 'http://localhost:3000/api/get-products' );
-  const { data: categoriesData } = await axios.get( 'http://localhost:3000/api/get-categories' );
+	// const { data: productsData } = await getProductsData();
+  const { data: products } = await getProductsData();
+  const { data: categories } = await getCategoriesData();
 
-  // const data = {
-  //   headerFooter: headerFooterData?.data ?? {},
-  //    products: productsData?.products ?? {}
-  // }
 	return {
 		props: {
       headerFooter: headerFooterData?.data ?? {},
-      products: productsData?.products ?? {},
-      categories: categoriesData?.categories ?? {}, 
+      products: products ?? {},
+      categories: categories ?? {}, 
     },
 		
 		/**

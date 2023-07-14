@@ -14,7 +14,7 @@ const Categories = ({categories}) => {
         <div className="grid_four_item">
             { categories.length ? categories.map( categorie => (
                 <div key={ categorie?.id } className="grid_four_item_box">
-                    <Link href={categorie?.permalink ?? '/'}>
+                    <Link legacyBehavior href={categorie?.permalink ?? '/'}>
                         <div>{categorie?.name}</div>
                     </Link>
                 </div>
