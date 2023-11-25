@@ -1,10 +1,11 @@
 import axios from 'axios';
 import Products from '../src/components/products';
-import { GET_PRODUCTS_ENDPOINT } from '../src/utils/constants/endpoints';
+import { HEADER_FOOTER_ENDPOINT } from '../src/utils/constants/endpoints';
 import Categories from '../src/components/categories';
 import { getProductsData } from '../src/utils/products';
 import { getCategoriesData } from '../src/utils/categories';
-import Layout from '../src/components/layouts';
+import Layout from '../src/components/layout';
+import 'react-app-polyfill/stable';
 
 
 export default function Home({headerFooter, products, categories}) {
@@ -19,7 +20,8 @@ export default function Home({headerFooter, products, categories}) {
 
 export async function getStaticProps() {
   // Все будет выводится последовательно, друг за другом
-	const { data: headerFooterData } = await axios.get( `${ process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL }/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer`);
+	// const { data: headerFooterData } = await axios.get( `${ process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL }/wp-json/rae/v1/header-footer?header_location_id=hcms-menu-header&footer_location_id=hcms-menu-footer`);
+  const { data: headerFooterData } = await axios.get( HEADER_FOOTER_ENDPOINT );
 	// const { data: productsData } = await getProductsData();
   const { data: products } = await getProductsData();
   const { data: categories } = await getCategoriesData();

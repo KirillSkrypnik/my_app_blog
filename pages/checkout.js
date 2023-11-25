@@ -1,14 +1,16 @@
 import Layout from '../src/components/layout';
-import { HEADER_FOOTER_ENDPOINT } from '../src/utils/constants/endpoints';
+import {
+	HEADER_FOOTER_ENDPOINT,
+    WOOCOMMERCE_COUNTRIES_ENDPOINT,
+} from '../src/utils/constants/endpoints';
 import axios from 'axios';
-import CartItemsContainer from '../src/components/cart/cart-items-container';
-import 'react-app-polyfill/stable';
+import CheckoutForm from '../src/components/checkout/checkout-form';
 
-export default function Cart({ headerFooter }) {
+export default function Checkout({ headerFooter, countries }) {
 	return (
 		<Layout headerFooter={headerFooter || {}}>
-			<h1 >Cart</h1>
-			<CartItemsContainer/>
+			<h1>Checkout</h1>
+			<CheckoutForm countriesData={countries}/>
 		</Layout>
 	);
 }
@@ -16,10 +18,12 @@ export default function Cart({ headerFooter }) {
 export async function getStaticProps() {
 	
 	const { data: headerFooterData } = await axios.get( HEADER_FOOTER_ENDPOINT );
-	
+	const { data: countries } = await axios.get( WOOCOMMERCE_COUNTRIES_ENDPOINT );
+
 	return {
 		props: {
 			headerFooter: headerFooterData?.data ?? {},
+			countries: countries || {}
 		},
 		
 		/**
@@ -27,7 +31,6 @@ export async function getStaticProps() {
 		 * if the data is changed, if it is changed then it will update the
 		 * static file inside .next folder with the new data, so that any 'SUBSEQUENT' requests should have updated data.
 		 */
-        // Проверка каждого нового запроса, гарантирует что данные на странице не устареют
 		revalidate: 1,
 	};
 }

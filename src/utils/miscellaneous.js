@@ -3,9 +3,6 @@ import DOMPurify from 'dompurify';
 /**
  * Sanitize markup or text when used inside dangerouslysetInnerHTML
  *
- * @param {string} content Plain or html string.
- *
- * @return {string} Sanitized string
  */
 export const sanitize = ( content ) => {
 	return 'undefined' !== typeof window ? DOMPurify.sanitize( content ) : content;
@@ -14,9 +11,6 @@ export const sanitize = ( content ) => {
 /**
  * Replace backend url with front-end url.
  *
- * @param {String} data Data.
- *
- * @return formattedData Formatted data.
  */
 export const replaceBackendWithFrontendUrl = ( data ) => {
 	if ( ! data || 'string' !== typeof data ) {
@@ -32,10 +26,6 @@ export const replaceBackendWithFrontendUrl = ( data ) => {
 
 /**
  * Get Formatted Date.
- * @param {String} theDate The date to be formatted.
- * @param {String} locales locales.
- *
- * @return {string} Formatted Date.
  */
 export const getFormattedDate = ( theDate = '', locales = 'en-us' ) => {
 	const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };

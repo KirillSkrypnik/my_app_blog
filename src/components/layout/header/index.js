@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useContext, useState } from 'react';
+import { AppContext } from '../../context';
 import isEmpty from 'lodash/isEmpty';
 import SvgMailIcon from './../../icons/iconComponents/MailIcon';
 import SvgPhoneIcon from './../../icons/iconComponents/PhoneIcon';
@@ -10,8 +11,9 @@ import SvgPhoneIcon from './../../icons/iconComponents/PhoneIcon';
 import { getPathNameFromUrl } from '../../../utils/miscellaneous';
 import Head from 'next/head'
 const Header = ({header}) => {
-	const {headerMenuItems, siteDescription, siteLogoUrl, siteTitle, favicon} = header || {} //равны пунктам меню или пустому заголовку если пунктов меню нет
+	const {headerMenuItems, siteDescription, siteLogoUrl, siteTitle, favicon, carbon, carbonHistory} = header || {} //равны пунктам меню или пустому заголовку если пунктов меню нет
 	// console.warn('header', header);
+	const [ cart, setCart ] = useContext( AppContext );
 
 	const [ isMenuVisible, setMenuVisibility ] = useState( false ); //Для изменения бургера и открытия меню
 
@@ -46,17 +48,22 @@ const Header = ({header}) => {
 
 				</div>
 				<div className="header_top_column">
-					<a className="header_top_column_link" href="mailto:test@gmail.com">test@gmail.com</a>
+					<a className="header_top_column_link" href="">
+                                {/* {carbon[1].CONTENT}			 */}
+                            </a>
 					<div className="header_top_column_text main_buttom_popup" data-form="writetous"><SvgMailIcon /><span>Написать нам</span></div>
 				</div>
 				<div className="header_top_column header_top_column_second">
-					<a className="header_top_column_link" href="tel:+79885502299">+79885502299</a>
+					<a className="header_top_column_link" href="tel:" > 
+                            {/* {header.carbon[0].CONTENT} */}
+                    </a> 
 					<div className="header_top_column_text main_buttom_popup" data-form="callback"><SvgPhoneIcon /><span>Заказать звонок</span></div>
 				</div>
 				<a
 				className='header_top_button'>Каталог</a>
-				<a
-				className='header_top_button'>Корзина</a>
+				<Link legacyBehavior href="/cart">
+					<a className='header_top_button header_top_button_cart'>Корзина <span>{cart?.totalQty ? `(${cart?.totalQty})` : null}</span></a>
+				</Link>
 				<button 
 				onClick={() => setMenuVisibility( ! isMenuVisible)} 
 				className="header_top_button_mobile">
@@ -64,19 +71,21 @@ const Header = ({header}) => {
 				</button>
 				<div className={`${isMenuVisible ? 'mobile_menu_active mobile_menu' : 'mobile_menu'}`}>
 					{ ! isEmpty( headerMenuItems ) && headerMenuItems.length ? headerMenuItems.map( menuItem => (
-						<Link legacyBehavior key={ menuItem?.ID }
+						<Link rel="stylesheet" legacyBehavior key={ menuItem?.ID }
 								href={ getPathNameFromUrl( menuItem?.url ?? '' ) || '/' }>
 							<a className="block mt-4 lg:inline-block lg:mt-0 hover:text-brand-royal-blue duration-500 mr-10"
 								dangerouslySetInnerHTML={ { __html: menuItem.title } }/>
 						</Link>
 					) ) : null }
-						<Link legacyBehavior href="/blog">
+						<Link rel="stylesheet" legacyBehavior href="/blog">
 							<a className="block mt-4 lg:inline-block lg:mt-0 hover:text-brand-royal-blue duration-500 mr-10 text-red-600с">Blog</a>
 						</Link>
 				</div>
 			</div>
 		</div>
-
+		<div>
+			{/* {header.carbonHistory[0].CONTENT} */}
+		</div>
 		</>
 	);
 };

@@ -4,6 +4,7 @@ import Image from "../image"
 import Link from "next/link";
 import sanitizeHtml from 'sanitize-html';
 import AddToCart from "../cart/add-to-cart";
+import ExternalLink from './external-link';
 
 
 const Product = ({product}) => {
@@ -17,7 +18,7 @@ const Product = ({product}) => {
 
     return (
         <div key={ product?.id } className="grid_four_item_box">
-            <Link href={product?.permalink ?? '/'}>
+            <Link href={`/product/${product?.slug ?? ''}`}>
                 <Image 
                 sourceUrl={ img?.src ?? ''}
                 altText={ img?.alt }
@@ -30,6 +31,13 @@ const Product = ({product}) => {
             </Link>
             {
                 'simple' === productType ? <AddToCart product={ product }/> : null
+            }
+            {
+                'external' === product?.productType ?
+                    <ExternalLink
+                        url={ product?.external_url ?? '' }
+                        text={ product?.button_text ?? '' }
+                    /> : null
             }
         </div>
     )

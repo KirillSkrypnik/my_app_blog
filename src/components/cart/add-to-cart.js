@@ -26,7 +26,7 @@ const AddToCart = ( {product} ) => {
         <>
         <button 
             onClick={ () => addToCart( product?.id ?? 0, 1, setCart, setIsAddedToCart, setLoading ) } //количество товара
-            className="bg-white"
+            className="add_to_cart_button"
             disabled={loading}
             >
             { loading ? 'Adding...' : 'Add to cart' }

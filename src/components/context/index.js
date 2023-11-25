@@ -7,7 +7,8 @@ export const AppContext = React.createContext([
 
 export const AppProvider = (props) => {
     const [cart, setCart] = useState( null );
-// При первоночальном рендиренге
+
+	// При первоночальном рендиренге
 	useEffect( () => {
 		
 		if ( process.browser ) {

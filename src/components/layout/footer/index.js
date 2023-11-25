@@ -54,20 +54,20 @@ const Footer = ({footer}) => {
 
                         <div className="footer_phone_wrapper footer_contact_wrapper">
                         <img src="https://fomin.seo-imedia161.ru/wp-content/uploads/2023/04/footer_phone_icon.png" />
-                            <a href={"tel:" + footer.carbon[0].CONTENT} > 
-                            {footer.carbon[0].CONTENT}
+                            <a href="tel:" > 
+                            {/* {footer.carbon[0].CONTENT} */}
                             </a> 
                         </div>
                         <div className="footer_email_wrapper footer_contact_wrapper">
                         <img src="https://fomin.seo-imedia161.ru/wp-content/uploads/2023/04/foorer_email_icon.png" />
-                            <a href={"mailto:" + footer.carbon[1].CONTENT}>
-                                {footer.carbon[1].CONTENT}			
+                            <a href="">
+                                {/* {footer.carbon[1].CONTENT}			 */}
                             </a>
                         </div>
                         <div className="footer_map_wrapper footer_contact_wrapper">
                         <img src="https://fomin.seo-imedia161.ru/wp-content/uploads/2023/04/foorer_map_icon.png" />
-                        <a href={footer.carbon[2].CONTENT}>
-                        {footer.carbon[3].CONTENT}					
+                        <a href="">
+                        {/* {footer.carbon[3].CONTENT}					 */}
                         </a>
                         </div>
                     </div>
